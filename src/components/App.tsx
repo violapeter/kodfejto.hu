@@ -1,9 +1,9 @@
-import { GameContextProvider } from "../context/GameContext"
-import { GameBoard } from "./GameBoard"
-import { Header } from "./Header"
-import { Footer } from "./Footer"
-import { GameWrapper } from "./GameWrapper"
-import { Overlays } from "./Overlays"
+import { GameContextProvider } from '../context/GameContext'
+import { GameBoard } from './GameBoard'
+import { Header } from './Header'
+import { Footer } from './Footer'
+import { GameWrapper } from './GameWrapper'
+import { Overlays } from './Overlays'
 
 export const App = (): JSX.Element => (
   <GameContextProvider>

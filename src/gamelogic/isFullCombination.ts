@@ -1,4 +1,4 @@
-import { Color } from "./constants"
+import { Color } from './constants'
 
 const isColor = (value: string | null): boolean => {
   return Object.values(Color).includes(value as Color)

@@ -1,4 +1,4 @@
-import { Color } from "./constants"
+import { Color } from './constants'
 
 const getRandomInt = (min: number, max: number): number => {
   const minInt = Math.ceil(min)

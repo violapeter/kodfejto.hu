@@ -1,5 +1,5 @@
-import { generateCombination } from "./generateCombination"
-import { GameState } from "./constants"
+import { generateCombination } from './generateCombination'
+import { GameState } from './constants'
 
 export const createNewGame = (
   stepsCount: number,

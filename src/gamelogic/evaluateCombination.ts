@@ -1,5 +1,5 @@
-import { compareCombinations } from "./compareCombinations"
-import { GameState } from "./constants"
+import { compareCombinations } from './compareCombinations'
+import { GameState } from './constants'
 
 export const evaluateCombination = (
   combination: FullCombination,

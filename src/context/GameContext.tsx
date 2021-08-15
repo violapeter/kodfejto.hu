@@ -4,13 +4,13 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react"
-import { createNewGame } from "../gamelogic/createNewGame"
-import { useStorage } from "../hooks/useStorage"
-import { evaluateCombination as evaluate } from "../gamelogic/evaluateCombination"
-import { addDot as add } from "../gamelogic/addDot"
-import { removeDot as remove } from "../gamelogic/removeDot"
-import { Color, SLOTS_COUNT, STEPS_COUNT } from "../gamelogic/constants"
+} from 'react'
+import { createNewGame } from '../gamelogic/createNewGame'
+import { useStorage } from '../hooks/useStorage'
+import { evaluateCombination as evaluate } from '../gamelogic/evaluateCombination'
+import { addDot as add } from '../gamelogic/addDot'
+import { removeDot as remove } from '../gamelogic/removeDot'
+import { Color, SLOTS_COUNT, STEPS_COUNT } from '../gamelogic/constants'
 
 interface GameContextInterface {
   game: Game

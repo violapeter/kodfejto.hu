@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useRef } from "react"
+import { MutableRefObject, useEffect, useRef } from 'react'
 
 type UseDragImage = <T extends HTMLElement>() => {
   ref: MutableRefObject<T | null>
@@ -15,15 +15,15 @@ export const useDragImage: UseDragImage = <T extends HTMLElement>() => {
 
     const { current: el } = ref
 
-    el.addEventListener("dragstart", (event) => {
+    el.addEventListener('dragstart', (event) => {
       const target = event.target as T
       clone = el.cloneNode() as T
-      clone.style.setProperty("cursor", "grabbing")
+      clone.style.setProperty('cursor', 'grabbing')
       const offset = target.offsetHeight / 2
       event.dataTransfer?.setDragImage(clone, offset, offset)
       document.body.appendChild(clone)
     })
-    el.addEventListener("dragend", () => clone.remove())
+    el.addEventListener('dragend', () => clone.remove())
   }, [ref])
 
   return {

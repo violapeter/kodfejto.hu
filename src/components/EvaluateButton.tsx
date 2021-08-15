@@ -1,22 +1,22 @@
-import styled from "@emotion/styled"
-import { useContext } from "react"
-import { GameContext } from "../context/GameContext"
-import { isFullCombination } from "../gamelogic/isFullCombination"
-import { Button } from "./Button"
-import { useTranslation } from "react-i18next"
+import styled from '@emotion/styled'
+import { useContext } from 'react'
+import { GameContext } from '../context/GameContext'
+import { isFullCombination } from '../gamelogic/isFullCombination'
+import { Button } from './Button'
+import { useTranslation } from 'react-i18next'
 
 const Styled = {
   Button: styled(Button)<{ invisible?: boolean }>(
     {
-      position: "absolute",
-      margin: "0 auto",
-      width: "100%",
-      top: "-56px",
+      position: 'absolute',
+      margin: '0 auto',
+      width: '100%',
+      top: '-56px',
     },
     ({ invisible }) =>
       invisible && {
         opacity: 0,
-        pointerEvents: "none",
+        pointerEvents: 'none',
       }
   ),
 }
@@ -30,7 +30,7 @@ export const EvaluateButton = (): JSX.Element => {
       onClick={evaluateCombination}
       invisible={!isFullCombination(game)}
     >
-      {t("try")}
+      {t('try')}
     </Styled.Button>
   )
 }

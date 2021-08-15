@@ -4,7 +4,7 @@ export const useStorage = <T>(
   save: (item: T) => void
   open: () => T | null
 } => {
-  const key = "hu.kodfejto.game"
+  const key = 'hu.kodfejto.game'
 
   const save = (item: T) => {
     storage.setItem(key, JSON.stringify(item))

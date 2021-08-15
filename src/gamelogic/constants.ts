@@ -8,12 +8,12 @@ export const enum GameState {
 }
 
 export enum Color {
-  Grey = "grey",
-  Green = "green",
-  Blue = "blue",
-  Purple = "purple",
-  Pink = "pink",
-  Yellow = "yellow",
-  Orange = "orange",
-  Red = "red",
+  Grey = 'grey',
+  Green = 'green',
+  Blue = 'blue',
+  Purple = 'purple',
+  Pink = 'pink',
+  Yellow = 'yellow',
+  Orange = 'orange',
+  Red = 'red',
 }
