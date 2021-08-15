@@ -1,0 +1,15 @@
+{
+  "translations": {
+    "try": "Try combination",
+    "helpButton": "Help",
+    "restart": "Restart game",
+    "won": "You won!",
+    "wonSteps": "You managed to guess the combination in {steps} steps!",
+    "playAgain": "Play again",
+    "lost": "You lost",
+    "lostSteps": "Unfortunately, you couldn't figure out the combination in {steps} steps...",
+    "retry": "Retry",
+    "help": "The Secret Code is a logic game. You play the game against the machine. Your goal is to guess the color combination of {slotsCount} colors. You must first guess one by placing discs from the talon on the right on the current row. By clicking on the \"Try combination\" button, the machine evaluates the combination: the gray mark means that you have hit a color, and the black mark indicates that your position is also correct. If you managed to guess the combination in up to {stepsCount} steps, you won.",
+    "understand": "Understand!"
+  }
+}

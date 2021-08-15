@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "hu.kodfejto.twa",
+                   "sha256_cert_fingerprints": ["2C:A4:2F:BF:52:3C:ED:F3:06:35:7C:40:63:E1:F2:1A:2B:72:A8:E8:5F:38:A7:1E:03:37:79:5C:87:11:F9:B0"] }
+    }]

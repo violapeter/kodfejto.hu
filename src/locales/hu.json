@@ -1,0 +1,15 @@
+{
+  "translations": {
+    "try": "Kipróbálom",
+    "helpButton": "Segítség",
+    "restart": "Újrakezdem",
+    "won": "Nyertél",
+    "wonSteps": "Sikerült {{steps}} lépésből kitalálnod a kombinációt!",
+    "playAgain": "Újra játszom",
+    "lost": "Veszítettél",
+    "lostSteps": "Sajnos nem sikerült {{steps}} lépésből kitalálnod a kombinációt...",
+    "retry": "Újra megpróbálom",
+    "help": "A Titkos Kód egy logikai játék. A játékot a gép ellen játszod. Célja, hogy kitaláld a {{slotsCount}} színből álló színkombinációt. Először tippelned kell egyet, azáltal, hogy a jobb oldalon lévő talonból korongokat teszel az aktuális sorra. A \"kipróbálom\" gombra kattintva a gép kiértékeli a kombinációt: a szürke jelzés azt jelenti, hogy eltaláltál egy színt, a fekete pedig azt, hogy helyes a pozíciója is. Ha sikerült legfeljebb {{stepsCount}} lépésből kitalálnod a kombinációt, akkor nyertél.",
+    "understand": "Értem!"
+  }
+}

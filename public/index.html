@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffa763">
+  <meta name="description" content="Egy könnyű kis logikai játék, JavaScriptben írva,
+    ami népszerű 'Titkos kód' című játék implementációja">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <title>Kódfejtő játék</title>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="%PUBLIC_URL%/style.css">
+  <link rel="icon" href="%PUBLIC_URL%/launcher-icons/dots.png">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/launcher-icons/apple-touch-icon.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6670432-16"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-6670432-16');
+  </script>
+</head>
+<body class="base">
+  <script type="module">
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      navigator.serviceWorker.register('sw.js', { scope: './' })
+    }
+  </script>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+</body>
+</html>
