@@ -1,8 +1,9 @@
 import styled from "@emotion/styled"
 import { Dot } from "./Dot"
 import { StepResult } from "./StepResult"
-import { DragEventHandler, useContext } from "react"
+import { DragEventHandler, useContext, useState } from "react"
 import { GameContext } from "../context/GameContext"
+import { Color } from "../gamelogic/constants"
 
 const Styled = {
   Step: styled.div<{ active: boolean }>(
@@ -54,10 +55,16 @@ const Styled = {
         },
       }
   ),
-  Dot: styled(Dot)({
-    margin: "0 0 0 10px",
-    boxShadow: "0 0 0 1px #ddd",
-  }),
+  Dot: styled(Dot)<{ active: boolean }>(
+    {
+      margin: "0 0 0 10px",
+      boxShadow: "0 0 0 1px #ddd",
+    },
+    ({ active }) =>
+      !active && {
+        pointerEvents: "none",
+      }
+  ),
 }
 
 interface StepProps {
@@ -71,14 +78,30 @@ export const Step = ({
   combination,
   result,
 }: StepProps): JSX.Element => {
-  const { removeDot } = useContext(GameContext)
+  const { removeDot, addDot } = useContext(GameContext)
+  const [dragOver, setDragover] = useState<number>()
 
-  const handleDragOver: DragEventHandler = () => {
-    console.log("implementation")
-  }
+  const getDragOverHandler =
+    (index: number): DragEventHandler<HTMLDivElement> =>
+    (event) => {
+      event.preventDefault()
+      setDragover(index)
+    }
 
-  const handleDrop: DragEventHandler = () => {
-    console.log("implementation")
+  const getDropHandler =
+    (index: number): DragEventHandler<HTMLDivElement> =>
+    (event) => {
+      if (!active) return
+
+      const color = event.dataTransfer?.getData("text/plain") as Color
+      addDot(color, index)
+      setDragover(undefined)
+    }
+
+  const handleDragEnter: DragEventHandler<HTMLDivElement> = ({
+    nativeEvent,
+  }) => {
+    nativeEvent.preventDefault()
   }
 
   return (
@@ -87,10 +110,14 @@ export const Step = ({
         <Styled.Dot
           key={`dot${index}`}
           color={color}
-          onDragOver={handleDragOver}
-          onDrop={handleDrop}
+          onDragOver={getDragOverHandler(index)}
+          onDragEnter={handleDragEnter}
+          onDragLeave={() => setDragover(undefined)}
+          onDrop={getDropHandler(index)}
           onRemove={() => removeDot(index)}
           removable={active && color !== null}
+          dragover={active && dragOver === index}
+          active={active}
         />
       ))}
       <StepResult result={result} combinationLength={combination.length} />

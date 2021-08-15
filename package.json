@@ -50,7 +50,8 @@
     ]
   },
   "prettier": {
-    "semi": false
+    "semi": false,
+    "singleQuote": true
   },
   "browserslist": {
     "production": [

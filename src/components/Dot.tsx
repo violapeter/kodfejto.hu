@@ -1,5 +1,11 @@
 import styled from "@emotion/styled"
-import { HTMLAttributes } from "react"
+import {
+  forwardRef,
+  ForwardRefExoticComponent,
+  ForwardRefRenderFunction,
+  HTMLAttributes,
+  RefAttributes,
+} from "react"
 import { Color } from "../gamelogic/constants"
 
 const colorMap: { [value in Color]: string } = {
@@ -59,7 +65,7 @@ const Styled = {
       dragover && {
         boxShadow: `
             0 0 0 2px #ddd,
-            inset 0 0 0 4px rgba(0, 0, 0, 0.3)`,
+            inset 0 0 0 4px rgba(0, 0, 0, 0.3) !important`,
       }
   ),
   RemoveButton: styled.button({
@@ -89,15 +95,21 @@ const Styled = {
   }),
 }
 
-export const Dot = ({
-  color,
-  used,
-  dragover,
-  removable,
-  onRemove,
-  ...props
-}: DotProps): JSX.Element => (
-  <Styled.Dot color={color} used={used} dragover={dragover} {...props}>
+const DotRenderFn: ForwardRefRenderFunction<HTMLDivElement, DotProps> = (
+  { color, used, dragover, removable, onRemove, ...props },
+  forwardedRef
+) => (
+  <Styled.Dot
+    ref={forwardedRef}
+    color={color}
+    used={used}
+    dragover={dragover}
+    {...props}
+  >
     {removable && <Styled.RemoveButton onClick={() => onRemove?.()} />}
   </Styled.Dot>
 )
+
+export const Dot: ForwardRefExoticComponent<
+  DotProps & RefAttributes<HTMLDivElement>
+> = forwardRef(DotRenderFn)

@@ -3,6 +3,7 @@ import { DragEventHandler, useContext } from "react"
 import { GameContext } from "../context/GameContext"
 import { Dot } from "./Dot"
 import { Color } from "../gamelogic/constants"
+import { useDragImage } from "../hooks/useDragImage"
 
 const Styled = {
   Wrapper: styled.div({
@@ -20,7 +21,8 @@ const Styled = {
   }),
 }
 
-export const Dots = (): JSX.Element => {
+const DraggableDot = ({ color }: { color: Color }): JSX.Element => {
+  const { ref } = useDragImage<HTMLDivElement>()
   const {
     game: { step, board },
     addDot,
@@ -32,10 +34,6 @@ export const Dots = (): JSX.Element => {
       event.dataTransfer?.setData("text/plain", color)
     }
 
-  const handleDragEnd: DragEventHandler = () => {
-    console.log("implementation")
-  }
-
   const handleClick = (color: Color) => {
     if (board[step].includes(color)) {
       return
@@ -45,17 +43,22 @@ export const Dots = (): JSX.Element => {
   }
 
   return (
+    <Styled.Dot
+      ref={ref}
+      used={board[step].includes(color)}
+      color={color}
+      onDragStart={getDragStartHandler(color)}
+      onClick={() => handleClick(color)}
+      draggable
+    />
+  )
+}
+
+export const Dots = (): JSX.Element => {
+  return (
     <Styled.Wrapper>
-      {Object.values(Color).map((color, index) => (
-        <Styled.Dot
-          key={color}
-          used={board[step].includes(color)}
-          color={color}
-          onDragStart={getDragStartHandler(color)}
-          onDragEnd={handleDragEnd}
-          onClick={() => handleClick(color)}
-          draggable
-        />
+      {Object.values(Color).map((color) => (
+        <DraggableDot color={color} key={color} />
       ))}
     </Styled.Wrapper>
   )
